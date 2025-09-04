@@ -1,10 +1,4 @@
-![DSA & Advanced Algorithms in Python Banner](src/images/dsa-banner.png)
-
-# 🚀 DSA & Advanced Algorithms in Python
-
-> A **complete roadmap of Data Structures & Algorithms in Python**, covering everything from **fundamentals to advanced topics** — with clean code, pseudocode, explanations, and complexity analysis.
-
----
+![DSA & Advanced Algorithms in Python Banner](src/images/dsa_banner.png)
 
 # 🚀 DSA & Advanced Algorithms in Python
 

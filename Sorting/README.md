@@ -96,7 +96,6 @@ Sorting is the process of arranging elements in a particular order (ascending/de
 
 ### 9. Cycle Sort (Comparison-Based)
 **Explanation**: Places each element directly into its correct position by detecting cycles.  
-- **Key property**: Minimum number of writes → useful for memory-limited devices.  
 
 ⏱️ **Complexity**: Best/Worst O(n²), Space O(1), Stable ❌, Writes = O(n)  
 

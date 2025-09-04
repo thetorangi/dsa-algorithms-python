@@ -1,279 +1,199 @@
 # 🔄 Sorting Algorithms
 
-This folder contains implementations of **fundamental and advanced sorting algorithms** in Python.  
+This folder contains implementations of **fundamental, advanced, and hybrid sorting algorithms** in Python.  
 Sorting is the process of arranging elements in a particular order (ascending/descending).  
 
 ---
 
-## 📑 Table of Contents
+## 📑 Table of Contents  
+
+### 📘 Comparison-Based Sorts  
 1. [Bubble Sort](#1-bubble-sort)  
 2. [Selection Sort](#2-selection-sort)  
 3. [Insertion Sort](#3-insertion-sort)  
 4. [Merge Sort](#4-merge-sort)  
 5. [Quick Sort](#5-quick-sort)  
 6. [Heap Sort](#6-heap-sort)  
-7. [Counting Sort](#7-counting-sort)  
-8. [Radix Sort](#8-radix-sort)  
-9. [Bucket Sort](#9-bucket-sort)  
-10. [Comparison Table](#-comparison-table)  
-11. [File Structure](#-file-structure)  
+7. [Shell Sort](#7-shell-sort)  
+8. [Comb Sort](#8-comb-sort)  
+9. [Cycle Sort](#9-cycle-sort)  
+
+### 🔢 Non-Comparison-Based Sorts  
+10. [Counting Sort](#10-counting-sort)  
+11. [Radix Sort](#11-radix-sort)  
+12. [Bucket Sort](#12-bucket-sort)  
+13. [Pigeonhole Sort](#13-pigeonhole-sort)  
+
+### ⚡ Hybrid Sorts  
+14. [Tim Sort](#14-tim-sort)  
+15. [Intro Sort](#15-intro-sort)  
+
+### 📊 Final Sections  
+16. [Comparison Table](#-comparison-table)  
+17. [File Structure](#-file-structure)  
 
 ---
 
-## 📘 Algorithms Covered
+## 📘 Algorithms Covered  
 
 ---
 
-### 1. Bubble Sort
-**Explanation**: Repeatedly compares adjacent elements and swaps them if out of order. The largest element “bubbles up” to the end in each pass.  
+### 1. Bubble Sort (Comparison-Based)
+**Explanation**: Repeatedly compares adjacent elements and swaps if out of order.  
+
+⏱️ **Complexity**: Best O(n), Worst O(n²), Space O(1), Stable ✅  
+
+---
+
+### 2. Selection Sort (Comparison-Based)
+**Explanation**: Repeatedly selects the minimum and places it at the beginning.  
+
+⏱️ **Complexity**: Always O(n²), Space O(1), Stable ❌  
+
+---
+
+### 3. Insertion Sort (Comparison-Based)
+**Explanation**: Inserts each element into its correct position within the sorted part.  
+
+⏱️ **Complexity**: Best O(n), Worst O(n²), Space O(1), Stable ✅  
+
+---
+
+### 4. Merge Sort (Comparison-Based)
+**Explanation**: Divide & Conquer → recursively split and merge.  
+
+⏱️ **Complexity**: Always O(n log n), Space O(n), Stable ✅  
+
+---
+
+### 5. Quick Sort (Comparison-Based)
+**Explanation**: Partition around pivot, recursively sort subarrays.  
+
+⏱️ **Complexity**: Best O(n log n), Worst O(n²), Space O(log n), Stable ❌  
+
+---
+
+### 6. Heap Sort (Comparison-Based)
+**Explanation**: Uses heap to repeatedly extract max.  
+
+⏱️ **Complexity**: O(n log n), Space O(1), Stable ❌  
+
+---
+
+### 7. Shell Sort (Comparison-Based)
+**Explanation**: Generalization of Insertion Sort using decreasing gap sequence.  
+
+⏱️ **Complexity**: Best O(n log n), Worst O(n²), Space O(1), Stable ❌  
+
+---
+
+### 8. Comb Sort (Comparison-Based)
+**Explanation**: Improves Bubble Sort using shrinking gap sequence (~1.3 factor).  
+
+⏱️ **Complexity**: Best O(n log n), Worst O(n²), Space O(1), Stable ❌  
+
+---
+
+### 9. Cycle Sort (Comparison-Based)
+**Explanation**: Places each element directly into its correct position by detecting cycles.  
+- **Key property**: Minimum number of writes → useful for memory-limited devices.  
 
 **Pseudocode**:
 ```
 
-procedure bubbleSort(arr):
+procedure cycleSort(arr):
 n ← length(arr)
-for i ← 0 to n-1:
-swapped ← false
-for j ← 0 to n-i-2:
-if arr\[j] > arr\[j+1]:
-swap(arr\[j], arr\[j+1])
-swapped ← true
-if swapped == false:
-break
+for cycle\_start ← 0 to n-2:
+item ← arr\[cycle\_start]
+pos ← cycle\_start
+for i ← cycle\_start+1 to n-1:
+if arr\[i] < item:
+pos ← pos+1
+if pos == cycle\_start:
+continue
+while item == arr\[pos]:
+pos ← pos+1
+swap(item, arr\[pos])
+while pos != cycle\_start:
+pos ← cycle\_start
+for i ← cycle\_start+1 to n-1:
+if arr\[i] < item:
+pos ← pos+1
+while item == arr\[pos]:
+pos ← pos+1
+swap(item, arr\[pos])
 
 ```
 
-**Complexity**:  
-- Best: O(n) (already sorted)  
-- Worst: O(n²)  
-- Space: O(1)  
-- Stable: ✅  
+⏱️ **Complexity**: Best/Worst O(n²), Space O(1), Stable ❌, Writes = O(n)  
 
 ---
 
-### 2. Selection Sort
-**Explanation**: Repeatedly finds the minimum element from the unsorted part and puts it at the beginning.  
+### 10. Counting Sort (Non-Comparison-Based)
+**Explanation**: Uses frequency counting for integers in a known range.  
 
-**Pseudocode**:
-```
-
-procedure selectionSort(arr):
-n ← length(arr)
-for i ← 0 to n-1:
-minIndex ← i
-for j ← i+1 to n-1:
-if arr\[j] < arr\[minIndex]:
-minIndex ← j
-swap(arr\[i], arr\[minIndex])
-
-```
-
-**Complexity**:  
-- Best: O(n²)  
-- Worst: O(n²)  
-- Space: O(1)  
-- Stable: ❌  
+⏱️ **Complexity**: O(n + k), Space O(n + k), Stable ✅  
 
 ---
 
-### 3. Insertion Sort
-**Explanation**: Builds the final sorted array one item at a time by shifting larger elements to the right.  
+### 11. Radix Sort (Non-Comparison-Based)
+**Explanation**: Digit by digit sorting using Counting Sort.  
 
-**Pseudocode**:
-```
-
-procedure insertionSort(arr):
-n ← length(arr)
-for i ← 1 to n-1:
-key ← arr\[i]
-j ← i-1
-while j ≥ 0 and arr\[j] > key:
-arr\[j+1] ← arr\[j]
-j ← j-1
-arr\[j+1] ← key
-
-```
-
-**Complexity**:  
-- Best: O(n) (nearly sorted)  
-- Worst: O(n²)  
-- Space: O(1)  
-- Stable: ✅  
+⏱️ **Complexity**: O(nk), Space O(n + k), Stable ✅  
 
 ---
 
-### 4. Merge Sort
-**Explanation**: Divide & Conquer → Recursively splits the array in half, sorts each half, and merges them.  
+### 12. Bucket Sort (Non-Comparison-Based)
+**Explanation**: Distribute into buckets, sort each bucket, concatenate.  
 
-**Pseudocode**:
-```
-
-procedure mergeSort(arr):
-if length(arr) > 1:
-mid ← length(arr) / 2
-L ← arr\[0...mid-1]
-R ← arr\[mid...end]
-mergeSort(L)
-mergeSort(R)
-merge(L, R, arr)
-
-```
-
-**Complexity**:  
-- Best: O(n log n)  
-- Worst: O(n log n)  
-- Space: O(n)  
-- Stable: ✅  
+⏱️ **Complexity**: Best O(n+k), Worst O(n²), Space O(n+k), Stable ✅  
 
 ---
 
-### 5. Quick Sort
-**Explanation**: Divide & Conquer → Selects a pivot and partitions the array into elements smaller and greater than the pivot, then sorts recursively.  
+### 13. Pigeonhole Sort (Non-Comparison-Based)
+**Explanation**: Places items into pigeonholes based on values, reconstructs sorted list.  
 
-**Pseudocode**:
-```
-
-procedure quickSort(arr, low, high):
-if low < high:
-p ← partition(arr, low, high)
-quickSort(arr, low, p-1)
-quickSort(arr, p+1, high)
-
-procedure partition(arr, low, high):
-pivot ← arr\[high]
-i ← low - 1
-for j ← low to high-1:
-if arr\[j] < pivot:
-i ← i+1
-swap(arr\[i], arr\[j])
-swap(arr\[i+1], arr\[high])
-return i+1
-
-```
-
-**Complexity**:  
-- Best: O(n log n)  
-- Worst: O(n²) (bad pivot)  
-- Space: O(log n)  
-- Stable: ❌  
+⏱️ **Complexity**: O(n+range), Space O(range), Stable ✅  
 
 ---
 
-### 6. Heap Sort
-**Explanation**: Builds a max-heap and repeatedly extracts the largest element to place at the end.  
+### 14. Tim Sort (Hybrid)
+**Explanation**: Python’s built-in sort → hybrid of Merge + Insertion Sort.  
 
-**Pseudocode**:
-```
-
-procedure heapSort(arr):
-n ← length(arr)
-buildMaxHeap(arr, n)
-for i ← n-1 to 1:
-swap(arr\[0], arr\[i])
-heapify(arr, 0, i)
-
-```
-
-**Complexity**:  
-- Best: O(n log n)  
-- Worst: O(n log n)  
-- Space: O(1)  
-- Stable: ❌  
+⏱️ **Complexity**: Best O(n), Worst O(n log n), Space O(n), Stable ✅  
 
 ---
 
-### 7. Counting Sort
-**Explanation**: Uses frequency counts of elements to place them directly in sorted order. Works only for integers in a limited range.  
+### 15. Intro Sort (Hybrid)
+**Explanation**: C++ STL sort → hybrid of Quick + Heap + Insertion Sort.  
 
-**Pseudocode**:
-```
-
-procedure countingSort(arr, k):
-count ← \[0...k]
-output ← \[0...n-1]
-
-```
-for i ← 0 to n-1:
-    count[arr[i]] += 1
-for i ← 1 to k:
-    count[i] += count[i-1]
-for i ← n-1 downto 0:
-    output[count[arr[i]]-1] ← arr[i]
-    count[arr[i]] -= 1
-```
-
-```
-
-**Complexity**:  
-- Best: O(n + k)  
-- Worst: O(n + k)  
-- Space: O(n + k)  
-- Stable: ✅  
+⏱️ **Complexity**: Best/Worst O(n log n), Space O(log n), Stable ❌  
 
 ---
 
-### 8. Radix Sort
-**Explanation**: Sorts numbers digit by digit using a stable sort (like Counting Sort) as a subroutine.  
+## 📊 Comparison Table  
 
-**Pseudocode**:
-```
-
-procedure radixSort(arr, d):   // d = number of digits
-for i ← 1 to d:
-countingSort(arr, digit=i)
-
-```
-
-**Complexity**:  
-- Best: O(nk)  
-- Worst: O(nk)  
-- Space: O(n + k)  
-- Stable: ✅  
-
----
-
-### 9. Bucket Sort
-**Explanation**: Divides elements into buckets, sorts each bucket (using another algorithm), then concatenates.  
-
-**Pseudocode**:
-```
-
-procedure bucketSort(arr):
-n ← length(arr)
-buckets ← empty lists
-for each element in arr:
-insert element into bucket based on range
-for each bucket:
-sort(bucket)   // e.g., insertion sort
-concatenate all buckets
-
-```
-
-**Complexity**:  
-- Best: O(n + k) (uniform distribution)  
-- Worst: O(n²) (skewed distribution)  
-- Space: O(n + k)  
-- Stable: ✅ (if sub-sort is stable)  
+| Algorithm       | Type            | Best Case | Worst Case | Avg Case | Space | Stable | Notes |
+|-----------------|-----------------|-----------|------------|----------|-------|--------|-------|
+| Bubble Sort     | Comparison      | O(n)      | O(n²)      | O(n²)    | O(1)  | ✅     | Rarely used |
+| Selection Sort  | Comparison      | O(n²)     | O(n²)      | O(n²)    | O(1)  | ❌     | Fewest swaps |
+| Insertion Sort  | Comparison      | O(n)      | O(n²)      | O(n²)    | O(1)  | ✅     | Great for small/partial arrays |
+| Merge Sort      | Comparison      | O(n log n)| O(n log n) | O(n log n)| O(n) | ✅     | Divide & Conquer |
+| Quick Sort      | Comparison      | O(n log n)| O(n²)      | O(n log n)| O(log n)| ❌ | Very fast in practice |
+| Heap Sort       | Comparison      | O(n log n)| O(n log n) | O(n log n)| O(1) | ❌     | Priority queues |
+| Shell Sort      | Comparison      | O(n log n)| O(n²)      | O(n^(3/2))| O(1) | ❌     | Gap sequence |
+| Comb Sort       | Comparison      | O(n log n)| O(n²)      | O(n²/2^p)| O(1) | ❌     | Bubble improvement |
+| Cycle Sort      | Comparison      | O(n²)     | O(n²)      | O(n²)    | O(1)  | ❌     | Min writes |
+| Counting Sort   | Non-Comparison  | O(n+k)    | O(n+k)     | O(n+k)   | O(n+k)| ✅     | Only integers |
+| Radix Sort      | Non-Comparison  | O(nk)     | O(nk)      | O(nk)    | O(n+k)| ✅     | Digits-based |
+| Bucket Sort     | Non-Comparison  | O(n+k)    | O(n²)      | O(n+k)   | O(n+k)| ✅     | Uniform data |
+| Pigeonhole Sort | Non-Comparison  | O(n+range)| O(n+range) | O(n+range)| O(range)| ✅  | Narrow range only |
+| Tim Sort        | Hybrid          | O(n)      | O(n log n) | O(n log n)| O(n) | ✅     | Python default |
+| Intro Sort      | Hybrid          | O(n log n)| O(n log n) | O(n log n)| O(log n)| ❌ | C++ STL sort |
 
 ---
 
-## 📊 Comparison Table
-
-| Algorithm      | Best Case | Worst Case | Avg Case | Space | Stable | Notes |
-|----------------|-----------|------------|----------|-------|--------|-------|
-| Bubble Sort    | O(n)      | O(n²)      | O(n²)    | O(1)  | ✅     | Simple, rarely used |
-| Selection Sort | O(n²)     | O(n²)      | O(n²)    | O(1)  | ❌     | Fewest swaps |
-| Insertion Sort | O(n)      | O(n²)      | O(n²)    | O(1)  | ✅     | Good for small/partially sorted arrays |
-| Merge Sort     | O(n log n)| O(n log n) | O(n log n)| O(n) | ✅     | Divide & Conquer |
-| Quick Sort     | O(n log n)| O(n²)      | O(n log n)| O(log n)| ❌ | Fast in practice |
-| Heap Sort      | O(n log n)| O(n log n) | O(n log n)| O(1) | ❌     | Used in priority queues |
-| Counting Sort  | O(n+k)    | O(n+k)     | O(n+k)   | O(n+k)| ✅     | Works for integers only |
-| Radix Sort     | O(nk)     | O(nk)      | O(nk)    | O(n+k)| ✅     | Good for fixed-length numbers |
-| Bucket Sort    | O(n+k)    | O(n²)      | O(n+k)   | O(n+k)| ✅     | Great for uniform distribution |
-
----
-
-## 🗂️ File Structure
+## 🗂️ File Structure  
 ```
 
 Sorting/
@@ -283,15 +203,18 @@ Sorting/
 ├── merge\_sort.py
 ├── quick\_sort.py
 ├── heap\_sort.py
+├── shell\_sort.py
+├── comb\_sort.py
+├── cycle\_sort.py
 ├── counting\_sort.py
 ├── radix\_sort.py
 ├── bucket\_sort.py
+├── pigeonhole\_sort.py
+├── tim\_sort.py
+├── intro\_sort.py
 └── README.md
 
 ```
-
----
 ```
 
 ---
-Do you want me to now generate the **Python `.py` code files** for each algorithm (starting with Bubble, Selection, Insertion) to match this README?

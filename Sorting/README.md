@@ -98,33 +98,6 @@ Sorting is the process of arranging elements in a particular order (ascending/de
 **Explanation**: Places each element directly into its correct position by detecting cycles.  
 - **Key property**: Minimum number of writes → useful for memory-limited devices.  
 
-**Pseudocode**:
-```
-
-procedure cycleSort(arr):
-n ← length(arr)
-for cycle\_start ← 0 to n-2:
-item ← arr\[cycle\_start]
-pos ← cycle\_start
-for i ← cycle\_start+1 to n-1:
-if arr\[i] < item:
-pos ← pos+1
-if pos == cycle\_start:
-continue
-while item == arr\[pos]:
-pos ← pos+1
-swap(item, arr\[pos])
-while pos != cycle\_start:
-pos ← cycle\_start
-for i ← cycle\_start+1 to n-1:
-if arr\[i] < item:
-pos ← pos+1
-while item == arr\[pos]:
-pos ← pos+1
-swap(item, arr\[pos])
-
-```
-
 ⏱️ **Complexity**: Best/Worst O(n²), Space O(1), Stable ❌, Writes = O(n)  
 
 ---

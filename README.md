@@ -1,10 +1,5 @@
 # 🚀 DSA & Advanced Algorithms in Python
 
-![GitHub stars](https://img.shields.io/github/stars/thetorangi/dsa-algorithms-python?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/thetorangi/dsa-algorithms-python?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/thetorangi/dsa-algorithms-python?color=blue\&style=for-the-badge)
-![License](https://img.shields.io/github/license/thetorangi/dsa-algorithms-python?style=for-the-badge)
-
 > A **complete roadmap of Data Structures & Algorithms in Python**, covering everything from **fundamentals to advanced topics** — with clean code, pseudocode, explanations, and complexity analysis.
 
 ---

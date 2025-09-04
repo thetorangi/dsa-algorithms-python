@@ -111,8 +111,6 @@ else:
     
 ```
 
-```
-
 **Complexity**:
 - Time: O(log₃ n)  
 - Space: O(log n) (recursive stack)  
@@ -131,7 +129,6 @@ n ← length(arr)
 step ← √n
 prev ← 0
 
-```
 while arr[min(step, n)-1] < target:
     prev ← step
     step ← step + √n
@@ -144,7 +141,6 @@ for i ← prev to min(step, n)-1:
 return -1
 ```
 
-```
 
 **Complexity**:
 - Time: O(√n)  
@@ -163,7 +159,6 @@ procedure exponentialSearch(arr, target):
 if arr\[0] == target:
 return 0
 
-```
 i ← 1
 while i < length(arr) and arr[i] ≤ target:
     i ← i * 2
@@ -171,7 +166,6 @@ while i < length(arr) and arr[i] ≤ target:
 return binarySearch(arr, i/2, min(i, length(arr)-1), target)
 ```
 
-```
 
 **Complexity**:
 - Time: O(log i), where i = index of target  
@@ -189,7 +183,6 @@ based on the value of the target (works best on uniformly distributed data).
 procedure interpolationSearch(arr, target):
 low ← 0, high ← length(arr) - 1
 
-```
 while low ≤ high and target ≥ arr[low] and target ≤ arr[high]:
     pos ← low + ((target - arr[low]) * (high - low)) 
                  // (arr[high] - arr[low])
@@ -203,7 +196,6 @@ while low ≤ high and target ≥ arr[low] and target ≤ arr[high]:
 return -1
 ```
 
-```
 
 **Complexity**:
 - Best: O(log log n) (uniform data)  

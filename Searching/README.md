@@ -94,31 +94,19 @@ procedure ternarySearch(arr, low, high, target):
 if low > high:
 return -1
 
-```
 mid1 ← low + (high - low) // 3
-
 mid2 ← high - (high - low) // 3
 
-
 if arr[mid1] == target:
-
     return mid1
-    
 if arr[mid2] == target:
-
     return mid2
-    
 
 if target < arr[mid1]:
-
     return ternarySearch(arr, low, mid1-1, target)
-    
 else if target > arr[mid2]:
-
-    return ternarySearch(arr, mid2+1, high, target)
-    
+    return ternarySearch(arr, mid2+1, high, target)    
 else:
-
     return ternarySearch(arr, mid1+1, mid2-1, target)
     
 ```

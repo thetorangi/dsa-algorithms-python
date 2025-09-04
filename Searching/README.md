@@ -5,6 +5,18 @@ Searching is the process of finding the location of a target element within a co
 
 ---
 
+## 📑 Table of Contents
+1. [Linear Search](#1-linear-search)
+2. [Binary Search](#2-binary-search)
+3. [Ternary Search](#3-ternary-search)
+4. [Jump Search](#4-jump-search)
+5. [Exponential Search](#5-exponential-search)
+6. [Interpolation Search](#6-interpolation-search)
+7. [Comparison Table](#-comparison-table)
+8. [File Structure](#-file-structure)
+
+---
+
 ## 📘 Algorithms Covered
 
 ---

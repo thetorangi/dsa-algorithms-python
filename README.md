@@ -5,6 +5,8 @@
 > A **complete roadmap of Data Structures & Algorithms in Python**, covering everything from **fundamentals to advanced topics** — with clean code, pseudocode, explanations, and complexity analysis.
 
 ---
+# 🚀🎯 [Personal Cheat Sheet With Patterns and Use Case](./CHEAT_SHEET/README.md). 
+---
 
 ## 📑 Table of Contents
 

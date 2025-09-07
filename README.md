@@ -3,9 +3,8 @@
 # 🚀 DSA & Advanced Algorithms in Python
 
 > A **complete roadmap of Data Structures & Algorithms in Python**, covering everything from **fundamentals to advanced topics** — with clean code, pseudocode, explanations, and complexity analysis.
-
 ---
-# 🚀🎯 [Personal Cheat Sheet With Patterns and Use Case](./CHEAT_SHEET/README.md). 
+# [CHEAT_SHEET_LINK](https://thetorangi.github.io/DSA-cheat-sheet/)
 ---
 
 ## 📑 Table of Contents
@@ -27,6 +26,8 @@
 15. [🧩 Backtracking](./Backtracking/README.md)
 16. [🧮 Math & Bit Manipulation](./MathAndBitManipulation/README.md)
 
+---
+# 🚀🎯 [Personal Cheat Sheet With Patterns and Use Case](./CHEAT_SHEET/README.md). 
 ---
 
 ## 🛠️ What’s Inside?

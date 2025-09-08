@@ -32,12 +32,12 @@
 
 ## 🛠️ What’s Inside?
 
-✔️ **Python implementations** of all major algorithms
-✔️ **Pseudocode** for each algorithm
-✔️ **Time & Space complexity analysis**
-✔️ **Comparison tables** to choose the best algorithm
-✔️ **Structured folder system** for easy navigation
-✔️ Ready-to-use for **interviews, placements, and CP contests**
+✔️ **Python implementations** of all major algorithms  
+✔️ **Pseudocode** for each algorithm  
+✔️ **Time & Space complexity analysis**  
+✔️ **Comparison tables** to choose the best algorithm  
+✔️ **Structured folder system** for easy navigation  
+✔️ Ready-to-use for **interviews, placements, and CP contests**  
 
 ---
 
